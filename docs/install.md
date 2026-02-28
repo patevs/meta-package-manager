@@ -29,13 +29,13 @@ You can try Meta Package Manager right now in your terminal, without installing 
 `````{tab-set}
 ````{tab-item} Latest version
 ```shell-session
-$ uvx --from meta-package-manager -- mpm
+$ uvx meta-package-manager
 ```
 ````
 
 ````{tab-item} Specific version
 ```shell-session
-$ uvx --from meta-package-manager@5.21.0 -- mpm
+$ uvx meta-package-manager@5.21.0
 ```
 ````
 

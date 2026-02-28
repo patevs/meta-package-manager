@@ -185,6 +185,8 @@ docs = [
 
 [project.scripts]
 mpm = "meta_package_manager.__main__:main"
+# Alias for the main entry point. So we can call `uvx meta-package-manager` directly.
+meta-package-manager = "meta_package_manager.__main__:main"
 
 [build-system]
 requires = ["uv_build >= 0.9.0"]

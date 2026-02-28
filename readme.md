@@ -165,7 +165,7 @@ All [installation methods](https://kdeldycke.github.io/meta-package-manager/inst
 Thanks to [`uv`](https://docs.astral.sh/uv/getting-started/installation/), you can run `mpm` on any platform in one command, without installation or venv:
 
 ```shell-session
-$ uvx --from meta-package-manager -- mpm
+$ uvx meta-package-manager
 ```
 
 ### macOS

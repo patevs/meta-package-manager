@@ -6,6 +6,7 @@
 > This version is not released yet and is under active development.
 
 - [mpm] Inline `replace_content` utility from `click-extra` which was removed in `7.6.2`.
+- [mpm] Simplify `uvx` invocation from `uvx --from meta-package-manager -- mpm` to `uvx meta-package-manager`.
 
 ## [6.1.1 (2026-02-05)](https://github.com/kdeldycke/meta-package-manager/compare/v6.1.0...v6.1.1)
 
