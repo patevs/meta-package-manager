@@ -20,7 +20,6 @@ from __future__ import annotations
 from pathlib import Path
 from textwrap import dedent
 
-from click_extra.docs_update import replace_content
 from click_extra.table import TableFormat, render_table
 from extra_platforms import (
     ALL_WINDOWS,
@@ -143,9 +142,40 @@ def operation_matrix() -> tuple[str, str]:
     return rendered_table, "\n\n".join(footnotes)
 
 
+def replace_content(
+    filepath: Path,
+    new_content: str,
+    start_tag: str,
+    end_tag: str | None = None,
+) -> None:
+    """Replace in a file the content surrounded by the provided start and end tags.
+
+    If no end tag is provided, the whole content found after the start tag will be
+    replaced.
+    """
+    filepath = filepath.resolve()
+    assert filepath.exists(), f"File {filepath} does not exist."
+    assert filepath.is_file(), f"File {filepath} is not a file."
+
+    orig_content = filepath.read_text()
+
+    assert start_tag, "Start tag must be empty."
+    assert start_tag in orig_content, f"Start tag {start_tag!r} not found in content."
+    pre_content, table_start = orig_content.split(start_tag, 1)
+
+    if end_tag:
+        _, post_content = table_start.split(end_tag, 1)
+    else:
+        end_tag = ""
+        post_content = ""
+
+    filepath.write_text(
+        f"{pre_content}{start_tag}{new_content}{end_tag}{post_content}",
+    )
+
+
 def update_readme() -> None:
     """Update ``readme.md`` with implementation table for each manager we support."""
-
     readme = Path(__file__).parent.parent.joinpath("readme.md")
 
     replace_content(

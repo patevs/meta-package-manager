@@ -5,6 +5,8 @@
 > [!IMPORTANT]
 > This version is not released yet and is under active development.
 
+- [mpm] Inline `replace_content` utility from `click-extra` which was removed in `7.6.2`.
+
 ## [6.1.1 (2026-02-05)](https://github.com/kdeldycke/meta-package-manager/compare/v6.1.0...v6.1.1)
 
 - [choco] Add `--retry-count=3` option to all `choco` invocations.

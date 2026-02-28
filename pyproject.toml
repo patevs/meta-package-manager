@@ -113,8 +113,8 @@ dependencies = [
     "backports.strenum >= 1.3.0 ; python_version < '3.11'",
     # boltons 25.0.0 is the first version to support Python 3.13.
     "boltons >= 25.0.0",
-    # We need click-extra 7.5.1 for its new "aligned" table rendering.
-    "click-extra >= 7.5.1",
+    # click-extra 7.6.2 removed the docs_update module we used to depend on.
+    "click-extra >= 7.6.2",
     # cyclonedx-python-lib 11.2.0 is the first to support Python 3.14.
     "cyclonedx-python-lib [validation] >= 11.2.0",
     # extra-platforms 8.0.0 removes deprecated symbols and add extract_members().
@@ -197,6 +197,8 @@ module-root = ""
 [tool.uv]
 # Cooldown period.
 exclude-newer = "1 week"
+# Bypass cooldown for packages that need a newer version than the window allows.
+exclude-newer-package = { click-extra = "1 hour" }
 
 [tool.nuitka]
 product-name = "Meta Package Manager"
